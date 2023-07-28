@@ -18,7 +18,8 @@ def compute_node_degrees(g):
     :return: node_degrees: a tensor with the degree of each node
              node_degrees_ids: a labeled version of node_degrees (usable for 1-hot encoding)
     """
-    fc = lambda i: g.in_degrees(i).item()
+    fc = lambda i: g.in_degrees(i)
+    # print(map(fc, range(g.number_of_nodes())))
     node_degrees = list(map(fc, range(g.number_of_nodes())))
     unique_deg = list(set(node_degrees))
     mapping = dict(zip(unique_deg, list(range(len(unique_deg)))))

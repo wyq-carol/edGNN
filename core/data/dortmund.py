@@ -79,7 +79,7 @@ def preprocess_dortmund(*, dataset, out_folder):
         if 'attributes' in suffix:
             data[suffix] = np.loadtxt(fpath, dtype=np.float, delimiter=',')
         else:
-            data[suffix] = np.loadtxt(fpath, dtype=np.int, delimiter=',')
+            data[suffix] = np.loadtxt(fpath, dtype=np.int32, delimiter=',')
 
     graph_ids = set(data[GRAPH_ID_SUFFIX])
     node2graph = dict()
